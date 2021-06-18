@@ -1,0 +1,13 @@
+.user-display-container{
+    display: flex;
+    justify-content: space-between;
+}
+.list-container{
+    padding-left: 0px;
+}
+.custom-button-group-format{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
