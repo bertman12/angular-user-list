@@ -1,6 +1,6 @@
-<div class="container dumb-html">
+<div class="container">
   <div class="row">
-    <div class="col-6 input-area">  
+    <div class="col-5 input-area">  
       <h3>Enter New User Data</h3>
       <input [(ngModel)] = "name"  type="text" placeholder = "Enter Name" [disabled] = 'updateUser'>
       <input [(ngModel)] = "age"  type="number" placeholder = "Enter Age" [disabled] = 'updateUser'>
@@ -23,11 +23,13 @@
 
     </div>
 
-    <div class="col-6">
+<!-- [currentUser] corresponds to the current iteration in the array userSet. The component refers to that user to 
+  display, delete and update that specific user data. Each instantiation of the app-list component has their own relative currentUser.  -->
+    <div class="col-7">
       <h3>User List</h3>
       <div *ngFor = "let user of userSet; let i = index">
         <app-list 
-        [currentUser] = "user"
+        [currentUser] = "user" 
         [updateUser] = 'updateUser'
         (userRemoveRequest) = "onRemoveUserRequest($event)"
         (userUpdateRequest) = "onUpdateUserRequest($event)"></app-list>

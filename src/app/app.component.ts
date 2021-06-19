@@ -7,19 +7,20 @@ import { User } from './user.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  //user entry info
   name: string = '';
   age: number = null;
   city: string = '';
-  userNumber: number = null;
-  updateUser: boolean = false;
+
   userSet:User[]  = 
   [
     new User('Courage the Cowardly Dog', 22, 'Middle of Nowhere'),
     new User('Lich', 666, 'Icecrown'),
-    new User('Billy', 21, 'Endsville')
+    new User('Billy', 21, 'Endsville'),
   ];
-  selectedUser: User = null;
+
+  updateUser: boolean = false; 
+  selectedUser: User = null; //acquired from update user event, holds the user to be updated
 
   onAddUserRequest(){
     this.userSet.push(new User(this.name,this.age,this.city));
