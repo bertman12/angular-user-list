@@ -10,10 +10,11 @@ import { User } from '../user.model';
 export class ListComponent implements OnInit {
 
     @Input() currentUser: User = null;
+    @Input() updateUser: boolean = false; //listen if user is still being updated
     @Output() userRemoveRequest = new EventEmitter<User>();
     @Output() userUpdateRequest = new EventEmitter<User>();
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }

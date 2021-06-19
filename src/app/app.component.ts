@@ -13,11 +13,19 @@ export class AppComponent {
   city: string = '';
   userNumber: number = null;
   updateUser: boolean = false;
-  userSet:User[]  = [];
+  userSet:User[]  = 
+  [
+    new User('Courage the Cowardly Dog', 22, 'Middle of Nowhere'),
+    new User('Lich', 666, 'Icecrown'),
+    new User('Billy', 21, 'Endsville')
+  ];
   selectedUser: User = null;
 
-  onAddUser(){
+  onAddUserRequest(){
     this.userSet.push(new User(this.name,this.age,this.city));
+    this.name = '';
+    this.age = null;
+    this.city = '';
   }
 
   onRemoveUserRequest(user: User){
@@ -29,7 +37,7 @@ export class AppComponent {
     this.selectedUser = user;
   }
 
-  onFinishUpdateUser(){
+  onFinishUpdateUserRequest(){
     this.updateUser = false;
   }
 

@@ -1,25 +1,34 @@
-<div class="container">
+<div class="container dumb-html">
   <div class="row">
     <div class="col-6 input-area">  
-      <h3>Enter new User Data</h3>
+      <h3>Enter New User Data</h3>
       <input [(ngModel)] = "name"  type="text" placeholder = "Enter Name" [disabled] = 'updateUser'>
       <input [(ngModel)] = "age"  type="number" placeholder = "Enter Age" [disabled] = 'updateUser'>
       <input [(ngModel)] = "city"  type="text" placeholder = "Enter City" [disabled] = 'updateUser'>
-      <button class="btn-primary btn" (click) = "onAddUser()" [disabled] = 'updateUser'>Add User</button>
+      <button class="btn-primary btn" (click) = "onAddUserRequest()" [disabled] = 'updateUser || !name || !age || !city'>Add User
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+          <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+          <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+        </svg>
+      </button>
 
       <div *ngIf = 'updateUser' class="col">
+        <hr>
         <h3>Update User Data</h3>
         <input [(ngModel)] = "selectedUser.name"  type="text" placeholder = "Enter Name">
         <input [(ngModel)] = "selectedUser.age"  type="number" placeholder = "Enter Age">
         <input [(ngModel)] = "selectedUser.city"  type="text" placeholder = "Enter City">
-        <button class="btn-primary btn" (click) = "onFinishUpdateUser()">Update User</button>
+        <button class="btn-primary btn" (click) = "onFinishUpdateUserRequest()">Update User</button>
       </div>
+
     </div>
 
     <div class="col-6">
-      <h3>Users List</h3>
+      <h3>User List</h3>
       <div *ngFor = "let user of userSet; let i = index">
-        <app-list [currentUser] = "user"
+        <app-list 
+        [currentUser] = "user"
+        [updateUser] = 'updateUser'
         (userRemoveRequest) = "onRemoveUserRequest($event)"
         (userUpdateRequest) = "onUpdateUserRequest($event)"></app-list>
       </div>
