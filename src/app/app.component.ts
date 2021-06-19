@@ -19,7 +19,7 @@ export class AppComponent {
     new User('Billy', 21, 'Endsville'),
   ];
 
-  updateUser: boolean = false; 
+  updateUser: boolean = false; //used for disabling ui that doesn't relate to updating user info
   selectedUser: User = null; //acquired from update user event, holds the user to be updated
 
   onAddUserRequest(){
