@@ -15,8 +15,8 @@ export class AppComponent {
   userSet:User[]  = 
   [
     new User('Courage the Cowardly Dog', 22, 'Middle of Nowhere'),
-    new User('Lich', 666, 'Icecrown'),
-    new User('Billy', 21, 'Endsville'),
+    new User('Kel Thuzzad', 666, 'Icecrown'),
+    new User('Billy', 21, 'Endsville')
   ];
 
   updateUser: boolean = false; //used for disabling ui that doesn't relate to updating user info
